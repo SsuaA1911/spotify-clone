@@ -6,13 +6,14 @@ import PlayButton from "./PlayButton";
 
 interface SongItemProps {
   data: Song;
-  onClick: (id: string) => Void;
+  onClick: (id: string) => void;
 }
 
 const SongItem: React.FC<SongItemProps> = ({ data, onClick }) => {
-  const imgePath = useLoadImage(data);
+  const imagePath = useLoadImage(data);
   return (
     <div
+      onClick={() => onClick(data.id)}
       className="
     relative
     group
@@ -31,7 +32,7 @@ const SongItem: React.FC<SongItemProps> = ({ data, onClick }) => {
       "
     >
       <div
-      className="
+        className="
       relative
       aspect-square
       w-full
@@ -40,19 +41,12 @@ const SongItem: React.FC<SongItemProps> = ({ data, onClick }) => {
       overflow-hidden
       "
       >
-        <Image
-        className="object-cover"
-        src={imgePath}
-        fill
-        alt="Image"
-        />
+        <Image className="object-cover" src={imagePath} fill alt="Image" />
       </div>
       <div className="flex flex-col items-start w-full p-4 gap-y-1">
-        <p className="font-semibold truncate w-full">
-            {data.title}
-        </p>
+        <p className="font-semibold truncate w-full">{data.title}</p>
         <p
-        className="
+          className="
         text-neutral-400
         text-sm
         pb-4
@@ -60,16 +54,17 @@ const SongItem: React.FC<SongItemProps> = ({ data, onClick }) => {
         truncate
         "
         >
-            {data.author}
+          {data.author}
         </p>
       </div>
-      <div className="
+      <div
+        className="
       absolute
       bottom-24
       right-5
       "
       >
-       <PlayButton/>
+        <PlayButton />
       </div>
     </div>
   );
