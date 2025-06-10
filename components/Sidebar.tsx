@@ -6,19 +6,18 @@ import { HiHome } from "react-icons/hi";
 import Box from "./Box";
 import SidebarItem from "./SidebarItem";
 import Library from "./Library";
+import { Song } from "@/types";
 
 interface SidebarProps {
   children: React.ReactNode;
-  songs: Song[]
+  songs: Song[];
 }
 
-const Sidebar: React.FC<SidebarProps> = ({ 
-  children,
-  songs
-}) => {
+const Sidebar: React.FC<SidebarProps> = ({ children, songs }) => {
   const pathname = usePathname();
 
-  const routes = useMemo( () => [
+  const routes = useMemo(
+    () => [
       {
         icon: HiHome,
         label: "Home",
@@ -48,8 +47,8 @@ const Sidebar: React.FC<SidebarProps> = ({
       "
       >
         <Box>
-          <div 
-          className="
+          <div
+            className="
           flex
           flex-col
           gap-y-4
@@ -57,21 +56,16 @@ const Sidebar: React.FC<SidebarProps> = ({
           py-4
           "
           >
-{routes.map((item)=>(
-  <SidebarItem
-  key={item.label}
-  {...item}
-  />
-))}
+            {routes.map((item) => (
+              <SidebarItem key={item.label} {...item} />
+            ))}
           </div>
         </Box>
         <Box className="overflow-y-auto flex-1">
-          <Library songs={songs}/>
+          <Library songs={songs} />
         </Box>
       </div>
-      <main className="h-screen flex-1 overflow-y-auto py-2">
-        {children}
-      </main>
+      <main className="h-screen flex-1 overflow-y-auto py-2">{children}</main>
     </div>
   );
 };

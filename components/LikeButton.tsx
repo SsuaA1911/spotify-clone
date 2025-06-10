@@ -77,7 +77,7 @@ const LikeButton: React.FC<LikeButtonProps> = ({
             }
         }
     }
-    router.refresh
+    router.refresh()
   return (
     <button
     onClick={handleLiked}>

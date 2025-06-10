@@ -9,32 +9,32 @@ import { HiMiniSpeakerWave, HiSpeakerXMark } from "react-icons/hi2";
 import Slider from "./Slider";
 
 interface playerContentProps {
-    song: Song;
-    songUrl: string ;
+  song: Song;
+  songUrl: string;
 }
 
-
 const PlayerContent: React.FC<playerContentProps> = ({
-    song,
-    songUrl
+  song,
+  // songUrl
 }) => {
-    const Icon = true ? BsPauseFill : BsPlayFill;
-    const VolumIcon = true ? HiSpeakerXMark : HiMiniSpeakerWave;
+  const Icon = true ? BsPauseFill : BsPlayFill;
+  const VolumIcon = true ? HiSpeakerXMark : HiMiniSpeakerWave;
   return (
     <div className=" grid grid-cols-2 md:grid-cols-3 h-full">
-        <div className="
+      <div
+        className="
         flex
         w-full
         justify-start
         "
-        >
-            <div className="flex items-center gap-x-4">
-                <MediaItem data={song}/>
-                <LikeButton songId={song.id}/>
-
-            </div>
+      >
+        <div className="flex items-center gap-x-4">
+          <MediaItem data={song} />
+          <LikeButton songId={song.id} />
         </div>
-        <div className="
+      </div>
+      <div
+        className="
         flex
         md:hidden
         col-auto
@@ -42,10 +42,10 @@ const PlayerContent: React.FC<playerContentProps> = ({
         justify-end
         items-center
         "
-        >
-            <div
-            onClick={()=>{}}
-            className="
+      >
+        <div
+          onClick={() => {}}
+          className="
             h-10
             w-10
             flex
@@ -56,11 +56,11 @@ const PlayerContent: React.FC<playerContentProps> = ({
             p-1
             cursor-pointer
             "
-            >
-                <Icon size={30} className=" text-black" />
-            </div>
+        >
+          <Icon size={30} className=" text-black" />
         </div>
-        <div
+      </div>
+      <div
         className="
         hidden
         h-full
@@ -70,20 +70,21 @@ const PlayerContent: React.FC<playerContentProps> = ({
         w-full
         max-w-[722px]
         gap-x-6
-        ">
-            <AiFillStepBackward
-            onClick={()=>{}}
-            size={30}
-            className="
+        "
+      >
+        <AiFillStepBackward
+          onClick={() => {}}
+          size={30}
+          className="
             text-neutral-400
             cursor-pointer
             hover:text-white
             transition
             "
-            />
-            <div
-            onClick={()=>{}}
-            className="
+        />
+        <div
+          onClick={() => {}}
+          className="
             flex
             items-center
             justify-center
@@ -95,32 +96,28 @@ const PlayerContent: React.FC<playerContentProps> = ({
             cursor-pointer
 
             "
-            >
-                <Icon size={30} className="text-black"/>
-            </div>
-            <AiFillStepForward
-              onClick={()=>{}}
-            size={30}
-            className="
+        >
+          <Icon size={30} className="text-black" />
+        </div>
+        <AiFillStepForward
+          onClick={() => {}}
+          size={30}
+          className="
             text-neutral-400
             cursor-pointer
             hover:text-white
             transition
             "
-            />
+        />
+      </div>
+      <div className="hidden md:flex w-full justift-end pr-2">
+        <div className="flex items-center gap-x-2 w-[120px]">
+          <VolumIcon onClick={() => {}} className=" cursor-pointer" size={34} />
+          <Slider />
         </div>
-        <div className="hidden md:flex w-full justift-end pr-2">
-            <div className="flex items-center gap-x-2 w-[120px]">
-                <VolumIcon
-                onClick={()=>{}}
-                className=" cursor-pointer"
-                size={34}
-                />
-                <Slider/>
-            </div>
-        </div>
-        </div>
-  )
-}
+      </div>
+    </div>
+  );
+};
 
-export default PlayerContent
+export default PlayerContent;

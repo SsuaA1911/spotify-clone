@@ -14,9 +14,8 @@ if(!title){
 }
 
 const{
-    data: sessionData,
+    // data: sessionData,
     error:sessionError
-
 } = await supabase.auth.getSession();
 
 if(sessionError){
@@ -32,7 +31,8 @@ const {data, error} = await supabase
 if(error){
     console.log(error.message);
 }
-return (data as any) || [];
+
+return (data as Song[]) || [];
 
 };
 

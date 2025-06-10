@@ -7,28 +7,25 @@ import React from "react";
 import { AiOutlinePlus } from "react-icons/ai";
 import { TbPlaylist } from "react-icons/tb";
 import MediaItem from "./MediaItem";
-
+import { Song } from "@/types";
 
 interface LibraryProps {
-    songs: Song[];
+  songs: Song[];
 }
 
+const Library: React.FC<LibraryProps> = ({ songs }) => {
+  const authModal = useAuthModal();
+  const uploadModal = useUploadModal();
+  const { user } = useUser();
+  const onClick = () => {
+    if (!user) {
+      return authModal.onOpen();
+    }
 
-const Library: React.FC<LibraryProps> = ({
-    songs
-}) => {
-    const authModal = useAuthModal();
-    const uploadModal = useUploadModal();
-    const {user} = useUser();
-    const onClick = () =>{
-       if (!user){
-        return authModal.onOpen();
-       }
+    //TODO: Check for subscription
 
-       //TODO: Check for subscription
-
-       return uploadModal.onOpen();
-    };
+    return uploadModal.onOpen();
+  };
   return (
     <div className="flex flex-col">
       <div
@@ -49,36 +46,35 @@ const Library: React.FC<LibraryProps> = ({
         >
           <TbPlaylist className="text-neutral-400" size={26} />
           <p
-          className="
+            className="
           text-neutral-400
           font-medium
-          text-md">
+          text-md"
+          >
             Your Library
           </p>
         </div>
         <AiOutlinePlus
-        onClick={onClick}
-        className="
+          onClick={onClick}
+          className="
         text-neutral-400
         cursor-pointer
         hover:text-white
          transition "
         />
       </div>
-      <div className="
+      <div
+        className="
       flex
       flex-col
       gap-y-2
       mt-4
       px-3
-      ">
-       {songs.map((item)=>(
-        <MediaItem
-        onClick={()=>{}}
-        key={item.id}
-        data={item}
-        />
-       ))}
+      "
+      >
+        {songs.map((item) => (
+          <MediaItem onClick={() => {}} key={item.id} data={item} />
+        ))}
       </div>
     </div>
   );

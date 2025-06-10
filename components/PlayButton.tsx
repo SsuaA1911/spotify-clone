@@ -1,10 +1,6 @@
 import { FaPlay } from "react-icons/fa";
 
-type playButtonProps = {
-  // handleClick: (id: string) => Void;
-};
-
-const PlayButton = ({}: playButtonProps) => {
+const PlayButton = () => {
   return (
     <button
       className="
@@ -21,9 +17,7 @@ const PlayButton = ({}: playButtonProps) => {
     group-hover:opacity-100
     group-hover:translate-y-0
     hover:scale-110
-   
     "
-      // onClick={}
     >
       <FaPlay className="text-black" />
     </button>

@@ -41,7 +41,12 @@ const SongItem: React.FC<SongItemProps> = ({ data, onClick }) => {
       overflow-hidden
       "
       >
-        <Image className="object-cover" src={imagePath} fill alt="Image" />
+        <Image
+          className="object-cover"
+          src={imagePath ?? ""}
+          fill
+          alt="Image"
+        />
       </div>
       <div className="flex flex-col items-start w-full p-4 gap-y-1">
         <p className="font-semibold truncate w-full">{data.title}</p>
