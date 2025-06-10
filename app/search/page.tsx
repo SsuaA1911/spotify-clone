@@ -4,13 +4,14 @@ import SearchInPut from "@/components/SearchInPut";
 import SearchContent from "./components/SearchConten";
 
 interface Props {
-  searchParams: {
+  searchParams: Promise<{
     title: string;
-  };
+  }>;
 }
 
 const Search = async ({ searchParams }: Props) => {
-  const songs = await getSongsByTitle(searchParams?.title || "");
+  const resolvedSearchParams = await searchParams;
+  const songs = await getSongsByTitle(resolvedSearchParams?.title || "");
   return (
     <div
       className="
