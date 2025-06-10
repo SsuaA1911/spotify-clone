@@ -30,3 +30,6 @@ The app is fully responsive and works seamlessly across all screen sizes.
 - **Storage**: Supabase Storage (for music and images)
 
 ---
+## 🌐 Live Demo
+
+👉 [Click here to try the app](https://spotify-clone-three-ashy.vercel.app/)
