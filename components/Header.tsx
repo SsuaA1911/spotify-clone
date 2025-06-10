@@ -28,9 +28,9 @@ const Header: React.FC<HeaderProps> = ({ children, className }) => {
     router.refresh();
 
     if (error) {
-      toast.error(error.message)
-    }else{
-       toast.success("Logged out!") 
+      toast.error(error.message);
+    } else {
+      toast.success("Logged out!");
     }
   };
   return (
@@ -62,6 +62,7 @@ const Header: React.FC<HeaderProps> = ({ children, className }) => {
             "
         >
           <button
+            type="button"
             onClick={() => router.back()}
             className="
                 rounded-full
@@ -74,8 +75,8 @@ const Header: React.FC<HeaderProps> = ({ children, className }) => {
           >
             <RxCaretLeft className="text-white" size={35} />
           </button>
-
           <button
+            type="button"
             onClick={() => router.forward()}
             className="
                 rounded-full
@@ -91,6 +92,7 @@ const Header: React.FC<HeaderProps> = ({ children, className }) => {
         </div>
         <div className="flex md:hidden gap-x-2 items-center">
           <button
+            type="button"
             className="
              rounded-full
              p-2
@@ -105,6 +107,7 @@ const Header: React.FC<HeaderProps> = ({ children, className }) => {
             <HiHome className="text-black" size={20} />
           </button>
           <button
+            type="button"
             className="
              rounded-full
              p-2
@@ -129,19 +132,15 @@ const Header: React.FC<HeaderProps> = ({ children, className }) => {
         >
           {user ? (
             <div className="flex gap-x-4 items-center">
-                <Button
-                onClick={handleLogout}
-                className="bg-white px-6 py-2"
-                >
-                    Logout
-                </Button>
-                <Button
-                onClick={()=>router.push('/account')}
+              <Button onClick={handleLogout} className="bg-white px-6 py-2">
+                Logout
+              </Button>
+              <Button
+                onClick={() => router.push("/account")}
                 className="bg-white"
-                >
-                    <FaUserAlt/>
-                </Button>
-
+              >
+                <FaUserAlt />
+              </Button>
             </div>
           ) : (
             <>
