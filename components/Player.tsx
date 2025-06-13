@@ -27,11 +27,7 @@ const Player = () => {
     px-4
     "
     >
-      <PlayerContent
-      key={songUrl}
-      song={song}
-      songUrl={songUrl}
-      />
+      <PlayerContent key={songUrl} song={song} songUrl={songUrl} />
     </div>
   );
 };

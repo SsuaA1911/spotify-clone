@@ -20,7 +20,8 @@ const Slider: React.FC<SliderProps> = ({
     flex
     items-center
     select-none
-    touch-nonew-full
+    touch-none
+    w-full
     h-10
     "
     defaultValue={[1]}
@@ -30,7 +31,23 @@ const Slider: React.FC<SliderProps> = ({
     step={0.1}
     aria-label="Volume"
     >
-        <RadixSlider.Track>
+        <RadixSlider.Track
+        className="
+        bg-neutral-600
+        relative
+        grow
+        rounded-full
+        h-[3px]
+        "
+        >
+            <RadixSlider.Range className="
+            absolute
+            bg-white
+            roundded-full
+            h-full
+            "
+            >
+            </RadixSlider.Range>
             
         </RadixSlider.Track>
     </RadixSlider.Root>
